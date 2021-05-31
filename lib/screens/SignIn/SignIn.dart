@@ -78,19 +78,18 @@ class _SignInState extends State<SignIn> {
   Widget _submitButton() {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).pushNamed('/home');
-        // final form = _formKey.currentState;
-        // if (form.validate()) {
-        //   form.save();
-        //   setState(() {
-        //     btnLoading = true;
-        //   });
-        //
-        //   /// Simulate http requests
-        //   Future.delayed(Duration(milliseconds: 3000), () {
-        //     Navigator.of(context).pushNamed('/home');
-        //   });
-        // }
+        final form = _formKey.currentState;
+        if (form.validate()) {
+          form.save();
+          setState(() {
+            btnLoading = true;
+          });
+
+          /// Simulate http requests
+          Future.delayed(Duration(milliseconds: 3000), () {
+            Navigator.of(context).pushNamed('/home');
+          });
+        }
       },
       child: Container(
         width: MediaQuery.of(context).size.width,
