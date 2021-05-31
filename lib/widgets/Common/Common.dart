@@ -7,7 +7,7 @@ class Common {
     return RichText(
       textAlign: TextAlign.center,
       text: TextSpan(
-          text: 'T',
+          text: 'L',
           style: GoogleFonts.portLligatSans(
             textStyle: Theme.of(context).textTheme.headline4,
             fontSize: 30,
@@ -16,11 +16,11 @@ class Common {
           ),
           children: [
             TextSpan(
-              text: 'ro',
+              text: 'oa',
               style: TextStyle(color: Colors.black, fontSize: 30),
             ),
             TextSpan(
-              text: 've',
+              text: 'n',
               style: TextStyle(
                 // color: Color(0xffe46b10),
                 color: Constants.balanceCard,

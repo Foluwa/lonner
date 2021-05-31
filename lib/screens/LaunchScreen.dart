@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:splashscreen/splashscreen.dart';
-import 'package:trove_challenge/utils/OnBoardingPage.dart';
+import 'package:trove_challenge/screens/OnBoardingPage.dart';
 
 class LaunchScreen extends StatefulWidget {
   const LaunchScreen({Key key}) : super(key: key);

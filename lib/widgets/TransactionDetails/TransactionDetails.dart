@@ -40,49 +40,54 @@ class TransactionDetails extends StatelessWidget {
             child: Icon(image, size: 30, color: Color(0xff1f3c88))),
         SizedBox(width: 10),
         Expanded(
-          flex: 2,
+            flex: 2,
             child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                Text(name,
-                    style: TextStyle(
-                        color: Color(0xff070d59),
-                        fontSize: 18,
-                        fontWeight: FontWeight.w700)),
-                Text((isLoan ? '\₦' : '\₦') + formatCurrency.format(amount),
-                    style: TextStyle(
-                        color: isLoan
-                            ? Color(0xff070d59)
-                            : Colors.greenAccent[700],
-                        fontSize: 18,
-                        fontWeight: FontWeight.w700)),
-              ]),
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                Row(
-                  children: [
-                    Text(expenseDetail,
-                        style: TextStyle(
-                            color: Color(0x99070d59),
-                            fontSize: 14,
-                            fontWeight: FontWeight.w300)),
-                    if (transferBy != null)
-                      Text(' ' + transferBy,
-                          style: TextStyle(
-                              color: Color(0x99070d59),
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600))
-                  ],
-                ),
-                Text(date,
-                    style: TextStyle(
-                        color: Color(0x99070d59),
-                        fontFamily: theme.poppinsRegular,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w300)),
-              ])
-            ]))
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(name,
+                            style: TextStyle(
+                                color: Color(0xff070d59),
+                                fontSize: 18,
+                                fontWeight: FontWeight.w700)),
+                        Text(
+                            (isLoan ? '\₦' : '\₦') +
+                                formatCurrency.format(amount),
+                            style: TextStyle(
+                                color: isLoan
+                                    ? Color(0xff070d59)
+                                    : Colors.greenAccent[700],
+                                fontSize: 18,
+                                fontWeight: FontWeight.w700)),
+                      ]),
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Text(expenseDetail,
+                                style: TextStyle(
+                                    color: Color(0x99070d59),
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w300)),
+                            if (transferBy != null)
+                              Text(' ' + transferBy,
+                                  style: TextStyle(
+                                      color: Color(0x99070d59),
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w600))
+                          ],
+                        ),
+                        Text(date,
+                            style: TextStyle(
+                                color: Color(0x99070d59),
+                                fontSize: 14,
+                                fontWeight: FontWeight.w300)),
+                      ])
+                ]))
       ]),
     );
   }
