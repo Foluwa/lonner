@@ -53,7 +53,7 @@ class BottomNavBar extends StatelessWidget {
                           height: 40,
                           child: Icon(Icons.history,
                               size: 30, color: Color(0xff1f3c88))),
-                      Text('Payment',
+                      Text('History',
                           style:
                               TextStyle(color: Color(0xff1f3c88), fontSize: 14))
                     ]),

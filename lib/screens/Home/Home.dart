@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 import 'package:trove_challenge/constants/Constants.dart';
+import 'package:trove_challenge/provider/User.dart';
 import 'package:trove_challenge/utils/SizeConfig.dart';
 import 'package:trove_challenge/utils/ThemeUtils/ThemeUtils.dart';
 import 'package:trove_challenge/widgets/BottomNavBar/BottomNavBar.dart';
@@ -16,8 +18,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   ThemeUtils theme = new ThemeUtils();
-  // final formatCurrency =
-  //     new NumberFormat.simpleCurrency(symbol: "", locale: "en_NG");
+  UserProvider _user;
   final formatCurrency = new NumberFormat.currency(locale: "en_US", symbol: "");
 
   Widget colorCard(
@@ -66,6 +67,9 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
+    _user = Provider.of<UserProvider>(context);
+    print(_user.getUser.fullName);
+    print(_user.getUser.phoneNumber);
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -116,7 +120,7 @@ class _HomeState extends State<Home> {
                                   border:
                                       Border.all(color: Colors.white, width: 2),
                                   image: DecorationImage(
-                                    image: AssetImage('assets/foluwa.jpeg'),
+                                    image: AssetImage(_user.getUser.image),
                                   ),
                                 ),
                               ),
@@ -125,7 +129,8 @@ class _HomeState extends State<Home> {
                         ),
                       ]),
                   Row(children: [
-                    Text("Moronfoluwa A.",
+                    Text(_user.getUser.fullName,
+                        //"Moronfoluwa A.",
                         style: TextStyle(
                             color: Colors.white,
                             // fontSize: 28,

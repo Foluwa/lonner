@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:trove_challenge/constants/Constants.dart';
+import 'package:trove_challenge/provider/User.dart';
 import 'package:trove_challenge/utils/SizeConfig.dart';
 import 'package:trove_challenge/utils/ThemeUtils/ThemeUtils.dart';
 import 'package:trove_challenge/widgets/BottomNavBar/BottomNavBar.dart';
@@ -14,6 +16,7 @@ class ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
   ThemeUtils theme = new ThemeUtils();
   bool _status = true;
   final FocusNode myFocusNode = FocusNode();
+  UserProvider _user;
 
   @override
   void initState() {
@@ -24,6 +27,7 @@ class ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
+    _user = Provider.of<UserProvider>(context);
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -76,7 +80,8 @@ class ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                                 shape: BoxShape.circle,
                                                 image: DecorationImage(
                                                   image: AssetImage(
-                                                      'assets/foluwa.jpeg'),
+                                                    _user.getUser.image,
+                                                  ),
                                                   fit: BoxFit.cover,
                                                 ),
                                               )),
@@ -123,7 +128,7 @@ class ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                                 style: TextStyle(
                                                     fontSize: SizeConfig
                                                             .blockSizeHorizontal *
-                                                        6, //18.0,
+                                                        6,
                                                     fontWeight:
                                                         FontWeight.bold),
                                               ),
@@ -148,7 +153,10 @@ class ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                         mainAxisSize: MainAxisSize.max,
                                         children: <Widget>[
                                           Flexible(
-                                            child: TextField(
+                                            child: TextFormField(
+                                              initialValue:
+                                                  _user.getUser.fullName,
+                                              //
                                               decoration: const InputDecoration(
                                                 hintText: "Full Name",
                                               ),
@@ -165,7 +173,9 @@ class ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                         mainAxisSize: MainAxisSize.max,
                                         children: <Widget>[
                                           Flexible(
-                                            child: TextField(
+                                            child: TextFormField(
+                                              initialValue:
+                                                  _user.getUser.emailAddress,
                                               decoration: const InputDecoration(
                                                   hintText: "Email Address"),
                                               enabled: !_status,
@@ -180,7 +190,9 @@ class ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                         mainAxisSize: MainAxisSize.max,
                                         children: <Widget>[
                                           Flexible(
-                                            child: TextField(
+                                            child: TextFormField(
+                                              initialValue:
+                                                  _user.getUser.phoneNumber,
                                               decoration: const InputDecoration(
                                                   hintText: "Phone Number"),
                                               enabled: !_status,
@@ -200,20 +212,22 @@ class ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                             child: Padding(
                                               padding:
                                                   EdgeInsets.only(right: 10.0),
-                                              child: TextField(
+                                              child: TextFormField(
                                                 decoration:
                                                     const InputDecoration(
                                                         hintText: "Password"),
                                                 enabled: !_status,
+                                                obscureText: true,
                                               ),
                                             ),
                                             flex: 2,
                                           ),
                                           Flexible(
-                                            child: TextField(
+                                            child: TextFormField(
                                               decoration: const InputDecoration(
                                                   hintText: "Confirm Password"),
                                               enabled: !_status,
+                                              obscureText: true,
                                             ),
                                             flex: 2,
                                           ),
