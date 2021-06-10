@@ -2,8 +2,6 @@
 
 Loan application User interface with Flutter.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/0fsfBd3O5eI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 [![IMAGE_ALT](https://img.youtube.com/vi/0fsfBd3O5eI/0.jpg)](https://www.youtube.com/watch?v=0fsfBd3O5eI)
 
 ## Getting Started
